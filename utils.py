@@ -2,7 +2,6 @@
 """
 Created on Sat Oct 24 19:27:50 2020
 
-@author: tl759k
 """
 
 import pandas as pd
@@ -261,7 +260,7 @@ def init_snapshot(opl, ppl):
     opl_init = opl   
     ppl_init = ppl
   
-    client = bigquery.Client(project='wf-gcp-us-ae-ops-prod')
+    client = bigquery.Client(project='ops-prod')
     # Define table name, in format dataset.table_name
     opl_init_table = 'supply_chain.tbl_opl_init_snapshot'
     ppl_init_table = 'supply_chain.tbl_ppl_init_snapshot'
