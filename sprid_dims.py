@@ -121,5 +121,3 @@ class best_fit_sprid_list:
 #s = best_fit_sprid_list(D_r, W_r, H_r, r1, inc, f)
 #s.df_sprid
 
-## print the best sprid list to csv
-#df_sprid.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\output\best_sprid_list.csv')
