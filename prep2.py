@@ -2,7 +2,6 @@
 """
 Created on Fri Nov  6 06:42:05 2020
 
-@author: tl759k
 """
 
 # Import OPL and PPL Init Data
@@ -16,7 +15,7 @@ import pypyodbc
 import pandas as pd
 
 ## source path
-#root = r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\code'
+#root = r'C:\Users\SQL\Sprid_Profile\consolidation_tool\code'
 #
 #opl_oh = 'opl_on_hand_snapshot_sql.sql'
 #ppl_oh = 'ppl_on_hand_snapshot_sql.sql'
@@ -60,8 +59,8 @@ import pandas as pd
 
 
 
-opl = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False)
-ppl = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv', index_col = False)
+opl = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False)
+ppl = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv', index_col = False)
 #.drop(['Unnamed: 0'],axis=1)
 
 ppl.rename(columns = {'Sprid_Units':'OH_Units'}, inplace = True)
@@ -80,6 +79,6 @@ ppl.drop(columns = ['num_of_loc_id'], inplace = True)
 
 
 ## save results to csv as a backup
-#opl.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv')
-#ppl.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv')
+#opl.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv')
+#ppl.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv')
             
