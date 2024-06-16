@@ -2,13 +2,6 @@
 """
 Created on Tue Aug  4 15:04:11 2020
 
-@author: tl759k
-"""
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 30 15:10:30 2020
-
-@author: tl759k
 """
 # Cran SP Sprid Dims Analysis
 
@@ -43,7 +36,7 @@ rack_dims = pd.DataFrame(rack_dims, columns = ['Rack_Dims', 'MaxDim', 'MidDim', 
       
        
 # Part 2: Sprid dims data
-sprid_dims = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\cran_sp_distinct_dims.csv')
+sprid_dims = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\cran_sp_distinct_dims.csv')
 sprid_dims['cube'] = sprid_dims['units'] * sprid_dims['MaxDim'] * sprid_dims['MidDim'] * sprid_dims['MinDim'] / 1728
 
 sprid_dims.rename(columns = {'MaxDim': 'Sprid_MaxDim','MidDim': 'Sprid_MidDim','MinDim':'Sprid_MinDim'}, inplace = True)
@@ -148,13 +141,13 @@ print (endtime - starttime)
 
 
 ## print to csv
-df_final.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\scenario\4_80\df_final.csv')
+df_final.to_csv(r'C:\Users\SQL\Sprid_Profile\scenario\4_80\df_final.csv')
 #
 #df_test = df_new[df_new['Rack_Dims'] == '42x19x18'].reset_index(drop = True)
-#df_test.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\scenario\4_80e\df_test.csv')
+#df_test.to_csv(r'C:\Users\SQL\Sprid_Profile\scenario\4_80e\df_test.csv')
 #
 min_loss = df_new.groupby(['Rack_Dims']).sum().reset_index()
 min_loss = min_loss[['Rack_Dims','cube_loss','eff_units','eff_cube']].sort_values()
 ##min_loss.columns
-min_loss.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\scenario\4_80\min_loss.csv')
+min_loss.to_csv(r'C:\Users\SQL\Sprid_Profile\scenario\4_80\min_loss.csv')
 
