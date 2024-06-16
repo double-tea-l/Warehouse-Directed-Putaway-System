@@ -2,7 +2,6 @@
 """
 Created on Tue Oct 27 10:35:30 2020
 
-@author: tl759k
 """
 
 import os
@@ -28,7 +27,7 @@ def get_project_root() -> Path:
 
 
 def pull_sql_query(
-    query: str, project_id: str = "wf-gcp-us-ae-ops-prod"
+    query: str, project_id: str = "ops-prod"
 ) -> pd.DataFrame:
     """
    Queries google big query and returns query results as a pandas dataframe. Accepts either a query string or file name as an input.
@@ -147,7 +146,7 @@ ppl.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init
 
 # debug
 #opl = opl[opl['Sprid'] == 'KD2260.14386703'].reset_index(drop= True)
-#opl.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\output\opl_real.csv')
+#opl.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\output\opl_real.csv')
 #ppl.rename(columns = {'Liquid_Cube' : 'Usable_Cube', 'Sprid_Units': 'OH_Units'}, inplace = True)
 #opl.columns
 
