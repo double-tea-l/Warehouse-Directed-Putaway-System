@@ -26,9 +26,9 @@ ppl = prep.ppl
 #ppl = prep2.ppl
 
 # from csv of saved sql
-#opl = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False).drop(['Unnamed: 0'],axis=1)
-#opl = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False)
-#ppl = pd.read_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv', index_col = False).drop(['Unnamed: 0'],axis=1)
+#opl = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False).drop(['Unnamed: 0'],axis=1)
+#opl = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\opl_init.csv', index_col = False)
+#ppl = pd.read_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\ppl_init.csv', index_col = False).drop(['Unnamed: 0'],axis=1)
 
 #opl.columns
 # define model variables-------------------------------------------------------
@@ -47,7 +47,7 @@ df_sprid = df_sprid.sort_values(by = ['Sprid_Dims', 'Util'], ascending = False).
 df_sprid['C'] = df_sprid.groupby(['Sprid_Dims']).cumcount()+1
 df_sprid = df_sprid[df_sprid['C'] == 1].reset_index(drop = True)
 
-#df_sprid.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\init\df_sprid_init.csv')
+#df_sprid.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\init\df_sprid_init.csv')
 # filter opl locations based on the best sprid list
 # this is required for pilot run given we need to determine which location to pick from
 df_opl = opl[opl['Sprid_Dims'].isin(df_sprid['Sprid_Dims'])].reset_index(drop = True)
@@ -86,8 +86,8 @@ opl_huid = df_opl[['WHID','Rack_Type','Location_ID','Sprid','hu_id','huid_units'
 # Step 3 Loop for ppl_pf-------------------------------------------------------
 # sort ppl_pf by utilization desc: try to fill fullest locations first
 ppl_pf = ppl_pf.sort_values(by = ['Utilization', 'OH_Units'], ascending = False).reset_index(drop = True)
-#ppl_pf.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\input\excess_units_logic\ppl_pf.csv')
-#opl_sprid.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\input\excess_units_logic\opl_sprid_cand.csv')
+#ppl_pf.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\input\excess_units_logic\ppl_pf.csv')
+#opl_sprid.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\input\excess_units_logic\opl_sprid_cand.csv')
 
 # start to loop
 output = pd.DataFrame()
@@ -220,6 +220,6 @@ df_ppl_empty = ppl_empty
 df_opl_sprid = opl_sprid
 df_opl_huid = opl_huid
 
-#df_output.to_csv(r'C:\Users\tl759k\SQL\Sprid_Profile\consolidation_tool\snapshots\pick_list\pf_logic.csv')
+#df_output.to_csv(r'C:\Users\SQL\Sprid_Profile\consolidation_tool\snapshots\pick_list\pf_logic.csv')
 # end of partially full location logic ----------------------------------------
 #------------------------------------------------------------------------------
