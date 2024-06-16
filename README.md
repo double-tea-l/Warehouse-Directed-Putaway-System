@@ -5,8 +5,6 @@ This instruction outlies key assumptions, code logic and outputs of the consolid
 ## 1. Objective
 The objective of the consolidation project is to maximize bin fill rate of prime pick locations and free up as many under-utilized other pick locations as possible. Target is to reach a minimum of 85% bin fill rate at the prime pick locations with a stretch goal of >=95% bin fill rate. Additionally, the target location occupation rate is >=80% and stretch goal is >=95%.
 
-Project document link: [Max Bin fill rate Pilot](https://docs.google.com/document/d/1ZMbg_AGulRVJSlBEZqlTNz7UTuoMbt42bkskK9d7htQ/edit?usp=sharing)
-
 ## 2. Concept Definition
 ### 2.1 OPL (Other Pick Locations) ###
   - Rack types are PALLET, PALLET XL LONG and PALLET XL FLOOR
@@ -106,7 +104,7 @@ The output of the program includes:
   - Pick sprid, huid and units
   - Putaway location id
 
-The output for warehouse associate's use is in [Cranbury SP PPL Consolidation Tool V1.0](https://docs.google.com/spreadsheets/d/1KbM8WyjBJUvNUtT8y-k6VcMwV7pXafgWc9RvXncheX8/edit?usp=sharing)
+The output for warehouse associate's use is in [Consolidation Tool V1.0](https://docs.google.com/spreadsheets/d/1KbM8WyjBJUvNUtT8y-k6VcMwV7pXafgWc9RvXncheX8/edit?usp=sharing)
   
 ### 3.6 How to run the code 
 
@@ -172,42 +170,7 @@ sql for ppl utilization snapshot: [./perf_metrics/ppl_utilization_snapshot_gbq.s
 **How to run:** schedule job to automatically run in Kronos 
 
 ## 5. Output Table Catalog
-
-### 5.1 Daily Snapshots of OPL and PPL Utilization:###
- 
- - SQL version:
- 
-    ```
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_opl_util_snapshot_sql` 
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_ppl_util_snapshot_sql` 
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_opl_loc_sprid_snapshot_sql` 
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_ppl_loc_sprid_snapshot_sql` 
-    ```
-
- - GBQ version:
- 
-   ```
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.ppl_utilization_snapshot` 
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.opl_utilization_snapshot` 
-   ```
-### 5.2 Initial OPL and PPL snapshots before consolidation ###
-
-The snapshots are taken every python run. 
-
- - Initial OPL:
- 
-   ```
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_opl_init_snapshot` 
-    where Timestamp in (select max(Timestamp) from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_opl_init_snapshot`) 
-   ```
- - Initial PPL:
-
-   ```
-    select * from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_ppl_init_snapshot` 
-    where Timestamp in (select max(Timestamp) from `wf-gcp-us-ae-ops-prod.supply_chain.tbl_opl_init_snapshot`) 
-   ```
-
-### 5.3 Consolidation Pick List ###
+### 5.1 Consolidation Pick List ###
 
   - python output table:
   
@@ -217,7 +180,7 @@ The snapshots are taken every python run.
   - formatted output pivot for g-sheet output list refresh:
     [./final_pick_list_gbq.sql](final_pick_list_gbq.sql)
 
-### 5.4 Performance Metric Dashboard ###
+### 5.2 Performance Metric Dashboard ###
 
 [Data studio dashboard](https://datastudio.google.com/u/0/reporting/6e8361c0-3087-48b7-854a-3fd760f4b418/page/Qd0nB)
 
