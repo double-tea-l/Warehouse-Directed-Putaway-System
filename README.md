@@ -1,4 +1,4 @@
-# Consolidation-Tool: Cranbury 1 Pilot
+# Directed Putaway System for Piloting
 
 This instruction outlies key assumptions, code logic and outputs of the consolidation tool. The purpose is to help developer track program details and relevant information. This is not a documentation for business user.
 
