@@ -2,7 +2,6 @@
 """
 Created on Mon Oct 26 00:20:22 2020
 
-@author: tl759k
 """
 import schedule
 import time
